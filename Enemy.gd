@@ -22,10 +22,13 @@ func _process(delta):
 
 	if direction.length() > 0:
 		direction = direction.normalized()
-		if direction.x > 0:
-			animated_sprite.play("right")
+		if abs(direction.x) > abs(direction.y):
+			if direction.x >= 0:
+				animated_sprite.play("right")
+			else:
+				animated_sprite.play("left")
 		else:
-			animated_sprite.play("left")
+			animated_sprite.play("right")
 	else:
 		defeat()
 
