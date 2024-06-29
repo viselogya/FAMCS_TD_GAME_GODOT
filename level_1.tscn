@@ -95,7 +95,7 @@ animations = [{
 "texture": ExtResource("16_syahh")
 }],
 "loop": true,
-"name": &"Wolk_Left",
+"name": &"left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -106,7 +106,7 @@ animations = [{
 "texture": ExtResource("13_biokb")
 }],
 "loop": true,
-"name": &"Wolk_Right",
+"name": &"right",
 "speed": 5.0
 }]
 
@@ -125,15 +125,15 @@ curve = SubResource("Curve2D_jo1jj")
 
 [node name="Enemy" type="PathFollow2D" parent="ground_tile/EnemyPath"]
 position = Vector2(382, 334)
+rotates = false
 cubic_interp = false
 loop = false
 script = ExtResource("11_t2uhg")
 
 [node name="Dinosaur" type="AnimatedSprite2D" parent="ground_tile/EnemyPath/Enemy"]
 sprite_frames = SubResource("SpriteFrames_bv72s")
-animation = &"Wolk_Right"
-autoplay = "Wolk_Right"
-frame_progress = 0.714902
+animation = &"left"
+autoplay = "right"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

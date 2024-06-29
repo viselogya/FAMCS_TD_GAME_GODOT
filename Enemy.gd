@@ -1,17 +1,32 @@
 extends PathFollow2D
 
-var speed = 100 # 100
+# Настроим скорость движения
+@export var speed = 100.0
+# Переменная для хранения предыдущей позиции
+var previous_position: Vector2
 
-# Called when the node enters the scene tree for the first time.
+# Ссылка на AnimatedSprite
+@onready var animated_sprite = $Dinosaur
+
 func _ready():
-	pass # Replace with function body.
+	previous_position = global_position
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
 	set_progress(get_progress() + speed * delta)
 
-	if get_progress_ratio() == 1:
+	var current_position = global_position
+	var direction = current_position - previous_position
+	
+	previous_position = current_position
+
+	if direction.length() > 0:
+		direction = direction.normalized()
+		if direction.x > 0:
+			animated_sprite.play("right")
+		else:
+			animated_sprite.play("left")
+	else:
 		defeat()
 
 func defeat():
