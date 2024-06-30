@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bow2a5b2mesxh"]
+
+[ext_resource type="Texture2D" uid="uid://bagd5l3g5i6ml" path="res://Enemies/Robot/18.L.L.png" id="1_43wfe"]
+[ext_resource type="Texture2D" uid="uid://2g72nvbfgkwj" path="res://Enemies/Robot/18.R.L.png" id="2_2x1ai"]
+[ext_resource type="Texture2D" uid="uid://bx77pky4xrlsu" path="res://Enemies/Robot/18.R.R.png" id="3_gmbav"]
+[ext_resource type="Texture2D" uid="uid://kadiy2sjt1wt" path="res://Enemies/Robot/18.L.R.png" id="4_bbhpr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_osbl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_43wfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2x1ai")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gmbav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bbhpr")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+
+[node name="Robot" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_osbl4")
+animation = &"right"
+autoplay = "right"
+frame_progress = 0.563853

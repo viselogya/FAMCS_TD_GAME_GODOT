@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1xdik80fi4t0"]
+
+[ext_resource type="Script" path="res://Enemy.gd" id="1_pl6x8"]
+[ext_resource type="Texture2D" uid="uid://ccn3rmjle5k4n" path="res://Enemies/Dinosaur/16.L.L.png" id="2_8m6to"]
+[ext_resource type="Texture2D" uid="uid://cyqm5gd1826sb" path="res://Enemies/Dinosaur/16.R.L.png" id="3_5vag3"]
+[ext_resource type="Texture2D" uid="uid://c7l3bkasgtmou" path="res://Enemies/Dinosaur/16.L.R.png" id="4_83j0i"]
+[ext_resource type="Texture2D" uid="uid://pfbm7tc1ajdt" path="res://Enemies/Dinosaur/16.R.R.png" id="5_4hxt0"]
+[ext_resource type="Script" path="res://Dinosaur.gd" id="6_la46q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bv72s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8m6to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5vag3")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_83j0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4hxt0")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="PathFollow2D"]
+position = Vector2(382, 334)
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("1_pl6x8")
+
+[node name="Dinosaur" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bv72s")
+animation = &"left"
+autoplay = "right"
+script = ExtResource("6_la46q")
+speed = 500.0
