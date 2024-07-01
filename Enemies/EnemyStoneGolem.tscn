@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfv3qkecyj3ws"]
+
+[ext_resource type="Script" path="res://Enemies/EnemyStoneGolem.gd" id="1_24rxa"]
+[ext_resource type="Texture2D" uid="uid://c2cys27r0iryp" path="res://Enemies/StoneGolem/17.L.L.png" id="2_wdju3"]
+[ext_resource type="Texture2D" uid="uid://dd0gw44w02yyr" path="res://Enemies/StoneGolem/17.R.L.png" id="3_k2ns7"]
+[ext_resource type="Texture2D" uid="uid://51ic1dbtotei" path="res://Enemies/StoneGolem/17.L.R.png" id="4_fjmwf"]
+[ext_resource type="Texture2D" uid="uid://biha06besjh5e" path="res://Enemies/StoneGolem/17.R.R.png" id="5_x3o16"]
+[ext_resource type="PackedScene" uid="uid://djjrgeh843ask" path="res://Enemies/debug_theme.tscn" id="6_yhthp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3y10"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wdju3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k2ns7")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fjmwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x3o16")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="PathFollow2D"]
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("1_24rxa")
+Speed = 50.0
+Helth = 1000.0
+
+[node name="StoneGolem" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w3y10")
+animation = &"left"
+autoplay = "right"
+
+[node name="unit_stats" parent="." instance=ExtResource("6_yhthp")]

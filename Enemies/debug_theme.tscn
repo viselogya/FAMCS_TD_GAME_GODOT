@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://djjrgeh843ask"]
+
+[ext_resource type="Script" path="res://Enemies/unit_stats_frame.gd" id="1_mv68n"]
+
+[node name="unit_stats" type="Node2D"]
+position = Vector2(-22, -107)
+script = ExtResource("1_mv68n")
+
+[node name="Vbox" type="VBoxContainer" parent="."]
+offset_right = 50.0
+offset_bottom = 77.0
+alignment = 1
+
+[node name="Speed" type="Label" parent="Vbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Speed
+"
+
+[node name="Armor" type="Label" parent="Vbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Armor"
+
+[node name="Helth" type="Label" parent="Vbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Helth
+"
