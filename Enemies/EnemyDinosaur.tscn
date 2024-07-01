@@ -37,6 +37,8 @@ rotates = false
 cubic_interp = false
 loop = false
 script = ExtResource("1_ev6aj")
+Speed = 100.0
+Armor = 10.0
 Helth = 500.0
 
 [node name="Dinosaur" type="AnimatedSprite2D" parent="."]

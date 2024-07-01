@@ -38,6 +38,7 @@ cubic_interp = false
 loop = false
 script = ExtResource("1_24rxa")
 Speed = 50.0
+Armor = 10.0
 Helth = 1000.0
 
 [node name="StoneGolem" type="AnimatedSprite2D" parent="."]

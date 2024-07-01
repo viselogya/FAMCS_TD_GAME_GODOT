@@ -38,6 +38,7 @@ cubic_interp = false
 loop = false
 script = ExtResource("1_16yfc")
 Speed = 300.0
+Armor = 10.0
 Helth = 300.0
 
 [node name="Robot" type="AnimatedSprite2D" parent="."]
