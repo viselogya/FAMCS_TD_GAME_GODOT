@@ -21,6 +21,13 @@ window/size/viewport_width=1296
 window/size/viewport_height=768
 window/stretch/mode="canvas_items"
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Towers"
+2d_physics/layer_3="Enemies_layer"
+2d_physics/layer_4="Bullets"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

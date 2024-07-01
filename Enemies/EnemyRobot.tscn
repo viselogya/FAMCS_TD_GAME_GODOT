@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bow2a5b2mesxh"]
+[gd_scene load_steps=9 format=3 uid="uid://bow2a5b2mesxh"]
 
 [ext_resource type="Script" path="res://Enemies/EnemyRobot.gd" id="1_16yfc"]
 [ext_resource type="Texture2D" uid="uid://bagd5l3g5i6ml" path="res://Enemies/Robot/18.L.L.png" id="1_43wfe"]
@@ -32,6 +32,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mfg"]
+size = Vector2(39, 63)
+
 [node name="Enemy" type="PathFollow2D"]
 rotates = false
 cubic_interp = false
@@ -48,3 +51,11 @@ autoplay = "right"
 frame_progress = 0.563853
 
 [node name="unit_stats" parent="." instance=ExtResource("6_bfihl")]
+
+[node name="HItBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HItBox"]
+position = Vector2(-4.5, 13.5)
+shape = SubResource("RectangleShape2D_q4mfg")

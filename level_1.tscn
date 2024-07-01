@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dyh1mnrey5wid"]
+[gd_scene load_steps=25 format=3 uid="uid://dyh1mnrey5wid"]
 
 [ext_resource type="Texture2D" uid="uid://bg62y66ymp82r" path="res://FAMCS.TD_design-main/6.png" id="1_q5xc6"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_vwa21"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ej4w456ew3r2" path="res://FAMCS.TD_design-main/2.3.png" id="8_t0bi8"]
 [ext_resource type="Texture2D" uid="uid://binjwwffve2kh" path="res://FAMCS.TD_design-main/2.png" id="9_q0n64"]
 [ext_resource type="Texture2D" uid="uid://cldrjpwxbkq1i" path="res://FAMCS.TD_design-main/4.png" id="10_528gp"]
+[ext_resource type="PackedScene" uid="uid://bxldiw7ie4lpy" path="res://Towers/wooden_tower.tscn" id="12_2tr2n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v5slp"]
 texture = ExtResource("2_lh35s")
@@ -133,5 +134,8 @@ autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="wooden_tower" parent="." instance=ExtResource("12_2tr2n")]
+position = Vector2(689, 256)
 
 [connection signal="timeout" from="WavesTimer" to="." method="_on_waves_timer_timeout"]

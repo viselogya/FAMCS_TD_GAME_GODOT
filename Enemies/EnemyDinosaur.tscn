@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1xdik80fi4t0"]
+[gd_scene load_steps=9 format=3 uid="uid://b1xdik80fi4t0"]
 
 [ext_resource type="Script" path="res://Enemies/EnemyDinosaur.gd" id="1_ev6aj"]
 [ext_resource type="Texture2D" uid="uid://ccn3rmjle5k4n" path="res://Enemies/Dinosaur/16.L.L.png" id="2_8m6to"]
@@ -32,6 +32,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4nyh"]
+size = Vector2(66, 69)
+
 [node name="Enemy" type="PathFollow2D"]
 rotates = false
 cubic_interp = false
@@ -47,3 +50,12 @@ animation = &"left"
 autoplay = "right"
 
 [node name="unit_stats" parent="." instance=ExtResource("6_ven1b")]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_f4nyh")
+one_way_collision_margin = 0.0

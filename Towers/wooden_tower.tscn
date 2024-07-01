@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxldiw7ie4lpy"]
+
+[ext_resource type="Script" path="res://Towers/tower.gd" id="1_pjgq4"]
+[ext_resource type="Texture2D" uid="uid://c8bbdkkqb4w82" path="res://Towers/wooden_tower/7.2.1.png" id="1_spiph"]
+[ext_resource type="Texture2D" uid="uid://bfj25new42fu2" path="res://Towers/wooden_tower/7.2.png" id="2_h70xo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6qfm"]
+radius = 156.45
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1gjs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_spiph")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h70xo")
+}],
+"loop": true,
+"name": &"passive",
+"speed": 5.0
+}]
+
+[node name="wooden_tower" type="Node2D"]
+script = ExtResource("1_pjgq4")
+
+[node name="visibility_radius" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="visibility_radius"]
+shape = SubResource("CircleShape2D_c6qfm")
+
+[node name="animation_wooden_tower" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_t1gjs")
+animation = &"passive"
+autoplay = "passive"
+
+[connection signal="area_entered" from="visibility_radius" to="." method="_on_visibility_radius_area_entered"]
+[connection signal="area_exited" from="visibility_radius" to="." method="_on_visibility_radius_area_exited"]
