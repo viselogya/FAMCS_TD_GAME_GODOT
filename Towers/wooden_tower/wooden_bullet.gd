@@ -1,16 +1,18 @@
 extends Node2D
 
 @export var speed: float = 1200.0
-@export var damage: float = 250.0
 
 var velocity = Vector2.ZERO
 
-@onready var EnemyObj : Enemy
+@onready var EnemyTarget : Enemy
 
-func shoot_towards(target_position: Vector2, Enemy_target : Enemy):
+var damage: float = 200.0
+
+func shoot_towards(target_position: Vector2, EnemyObj : Enemy, level : int):
 	# Вычисляем направление и скорость
+	damage += level * 50
 	velocity = (target_position - global_position).normalized() * speed
-	EnemyObj = Enemy_target
+	EnemyTarget = EnemyObj
 
 func _process(delta):
 	global_position += velocity * delta
@@ -23,7 +25,7 @@ func is_outside_screen() -> bool:
 	var viewport_rect = get_viewport().get_visible_rect()
 	return not viewport_rect.has_point(global_position)
 
-
 func _on_area_2d_area_entered(area):
-	EnemyObj.take_damage(damage)
+	EnemyTarget.take_damage(damage)
+	print(damage)
 	queue_free()

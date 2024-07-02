@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4c1ncu1dfiha"]
+
+[ext_resource type="Script" path="res://Towers/wooden_tower/wooden_bullet.gd" id="1_cyqlg"]
+[ext_resource type="Texture2D" uid="uid://c0mcnts0xqmt4" path="res://Towers/12.png" id="2_sfuq0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxbv3"]
+radius = 6.0
+
+[node name="wooden_bullet" type="Node2D"]
+script = ExtResource("1_cyqlg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 13)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_sfuq0")
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 0
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 12)
+shape = SubResource("CircleShape2D_bxbv3")
+one_way_collision_margin = 0.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
