@@ -4,8 +4,6 @@ class_name Enemy
 
 var previous_position: Vector2
 
-@onready var animated_sprites: Array = []
-
 @export var Speed: float: set = set_speed, get = get_speed
 @export var Armor: float: set = set_armor, get = get_armor
 @export var Helth: float: set = set_helth, get = get_helth
@@ -16,9 +14,6 @@ func _ready():
 	$unit_stats/Vbox/Helth.set_text("Helth: " + str(Helth))
 	
 	previous_position = global_position
-	for child in get_children():
-		if child is AnimatedSprite2D:
-			animated_sprites.append(child)
 
 func _process(delta):
 	set_progress(get_progress() + Speed * delta)
@@ -26,11 +21,11 @@ func _process(delta):
 	var direction = current_position - previous_position
 	previous_position = current_position
 	
-	for sprite in animated_sprites:
-		EnemyRotation(sprite, direction)
-		update_debug_setting()
+	var sprite = get_child(0)
+	EnemyRotation(sprite, direction)
+	update_debug_setting()
 		
-	if get_progress_ratio() == 1:
+	if get_progress_ratio() == 1 or get_helth() == 0:
 		queue_free()
 	
 
