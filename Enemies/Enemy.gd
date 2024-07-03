@@ -2,6 +2,8 @@ extends PathFollow2D
 
 class_name Enemy
 
+signal iam_on_end()
+
 var previous_position: Vector2
 
 @export var Speed: float: set = set_speed, get = get_speed
@@ -27,6 +29,7 @@ func _process(delta):
 		
 	if get_progress_ratio() == 1 or get_helth() == 0:
 		queue_free()
+		iam_on_end.emit()
 	
 
 func update_debug_setting():

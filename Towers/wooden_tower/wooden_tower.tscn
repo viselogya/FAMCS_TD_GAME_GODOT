@@ -81,6 +81,8 @@ text = "Move"
 position = Vector2(48, 48)
 shape = SubResource("RectangleShape2D_lw8mq")
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="area_entered" from="visibility_radius" to="." method="_on_visibility_radius_area_entered"]
 [connection signal="area_exited" from="visibility_radius" to="." method="_on_visibility_radius_area_exited"]
 [connection signal="timeout" from="reload_timer" to="." method="_on_reload_timer_timeout"]

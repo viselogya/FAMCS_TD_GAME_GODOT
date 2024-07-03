@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://3vhu2q325nlc"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_pxlnj"]
+[ext_resource type="Texture2D" uid="uid://leqlsfnoa0od" path="res://FAMCS.TD_design-main/34 shop.png" id="1_w010h"]
+[ext_resource type="Texture2D" uid="uid://bfj25new42fu2" path="res://Towers/wooden_tower/7.2.png" id="2_cceu7"]
+[ext_resource type="Texture2D" uid="uid://ibqvme28raam" path="res://Towers/eiffel_tower/9.b.png" id="3_4fvsr"]
+[ext_resource type="Texture2D" uid="uid://b37oa4pvrf8io" path="res://Towers/stone_tower/8.1.png" id="4_udq4v"]
+[ext_resource type="Texture2D" uid="uid://d2h8cnj25ric1" path="res://Towers/jade_tower/10.1.png" id="5_8a3tq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c11yk"]
+size = Vector2(96, 99)
+
+[node name="shop" type="Node2D"]
+script = ExtResource("1_pxlnj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2349, 765)
+scale = Vector2(9.0625, 14.0625)
+texture = ExtResource("1_w010h")
+
+[node name="Control" type="Control" parent="Sprite2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -47.3379
+offset_top = -47.5733
+offset_right = 15.6621
+offset_bottom = 48.4267
+
+[node name="GridContainer" type="GridContainer" parent="Sprite2D/Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 96.0
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D/Control/GridContainer"]
+position = Vector2(-1.21149, 34.1333)
+scale = Vector2(0.291954, 0.213333)
+texture = ExtResource("2_cceu7")
+offset = Vector2(65, 48)
+
+[node name="wooden_touch_screen" type="TouchScreenButton" parent="Sprite2D/Control/GridContainer/Sprite2D5"]
+position = Vector2(64.622, 46.6667)
+shape = SubResource("RectangleShape2D_c11yk")
+
+[node name="Label" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D5"]
+offset_left = 23.0472
+offset_top = -22.0001
+offset_right = 128.047
+offset_bottom = 0.999947
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "wooden tower"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D/Control/GridContainer"]
+position = Vector2(31.7793, 34.1333)
+scale = Vector2(0.294201, 0.213333)
+texture = ExtResource("3_4fvsr")
+offset = Vector2(54, 48)
+
+[node name="eifel_touch_screen" type="TouchScreenButton" parent="Sprite2D/Control/GridContainer/Sprite2D2"]
+position = Vector2(52.5092, 46.6666)
+shape = SubResource("RectangleShape2D_c11yk")
+
+[node name="Label" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D2"]
+offset_left = 21.7538
+offset_top = -20.6667
+offset_right = 126.754
+offset_bottom = 2.33334
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "eifel tower"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Control/GridContainer"]
+position = Vector2(2.20029, 61.44)
+scale = Vector2(0.301827, 0.213333)
+texture = ExtResource("4_udq4v")
+offset = Vector2(50, 48)
+
+[node name="stone_touch_screen" type="TouchScreenButton" parent="Sprite2D/Control/GridContainer/Sprite2D3"]
+position = Vector2(51.2045, 48.6667)
+shape = SubResource("RectangleShape2D_c11yk")
+
+[node name="Label" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D3"]
+offset_left = 15.0
+offset_top = -21.0
+offset_right = 90.0
+offset_bottom = -4.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "stone tower"
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Control/GridContainer"]
+position = Vector2(31.7793, 61.44)
+scale = Vector2(0.29169, 0.213222)
+texture = ExtResource("5_8a3tq")
+offset = Vector2(50, 48)
+
+[node name="jade_touch_screen" type="TouchScreenButton" parent="Sprite2D/Control/GridContainer/Sprite2D4"]
+position = Vector2(52.9614, 48.692)
+shape = SubResource("RectangleShape2D_c11yk")
+
+[node name="Label" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D4"]
+offset_left = 18.9148
+offset_top = -19.3434
+offset_right = 82.9148
+offset_bottom = -2.3434
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "jade tower"
+
+[connection signal="pressed" from="Sprite2D/Control/GridContainer/Sprite2D5/wooden_touch_screen" to="." method="_on_wooden_touch_screen_pressed"]
