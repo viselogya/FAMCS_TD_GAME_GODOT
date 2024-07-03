@@ -36,6 +36,7 @@ animations = [{
 size = Vector2(62, 81)
 
 [node name="Enemy" type="PathFollow2D"]
+v_offset = -30.0
 rotates = false
 cubic_interp = false
 loop = false

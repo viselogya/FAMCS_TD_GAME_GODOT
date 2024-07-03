@@ -7,8 +7,10 @@ enum states {
 	ACTIVE,
 }
 
+signal tower_is_cell(cell_position)
+
 var current_state = states.PASSIVE
-@export var level: int = 0
+@export var level_of_tower: int = 0
 @export var reload_time: float
 
 var loaded = true
@@ -33,7 +35,7 @@ func shoot(attack_obj : Enemy):
 	add_child(bullet)
 	
 	bullet.global_position = bullet.global_position
-	bullet.shoot_towards(attack_obj.global_position, attack_obj, level)
+	bullet.shoot_towards(attack_obj.global_position, attack_obj, level_of_tower)
 
 	loaded = false
 	reload_timer.start(reload_time)
@@ -48,8 +50,18 @@ func _on_reload_timer_timeout():
 	loaded = true
 
 func _on_cell_pressed():
+	tower_is_cell.emit(get_global_position())
 	queue_free()
 	
 func _on_upgrade_pressed():
-	level += 1
+	if level_of_tower <= 4:
+		level_of_tower += 1
+	else:
+		$upgrade_menu/upgrade.set_disabled(true)
+	$upgrade_menu.set_visible(false)
 
+func _on_upgrade_menu_button_pressed():
+	if $upgrade_menu.is_visible() == true:
+		$upgrade_menu.set_visible(false)
+	else:
+		$upgrade_menu.set_visible(true)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3x410vm6ijfu"]
+[gd_scene load_steps=8 format=3 uid="uid://c3x410vm6ijfu"]
 
 [ext_resource type="Script" path="res://Towers/tower.gd" id="1_pacw5"]
 [ext_resource type="PackedScene" uid="uid://d4c1ncu1dfiha" path="res://Towers/wooden_bullet.tscn" id="2_jfm5i"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bfj25new42fu2" path="res://Towers/wooden_tower/7.2.png" id="3_k6bi7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6qfm"]
-radius = 156.45
+radius = 300.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1gjs"]
 animations = [{
@@ -27,7 +27,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw8mq"]
+size = Vector2(96, 96)
+
 [node name="wooden_tower" type="Node2D"]
+z_index = 6
 script = ExtResource("1_pacw5")
 reload_time = 1.0
 
@@ -38,40 +42,48 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="visibility_radius"]
+position = Vector2(48, 48)
 shape = SubResource("CircleShape2D_c6qfm")
 
 [node name="animation_wooden_tower" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_t1gjs")
 animation = &"passive"
 autoplay = "passive"
+offset = Vector2(48, 48)
 
 [node name="reload_timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = -43.0
-offset_top = -55.0
-offset_right = 54.0
-offset_bottom = -33.0
+[node name="upgrade_menu" type="HBoxContainer" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = -50.0
+offset_right = 57.0
+offset_bottom = -28.0
+scale = Vector2(2, 2)
 
-[node name="upgrade" type="Button" parent="HBoxContainer"]
+[node name="upgrade" type="Button" parent="upgrade_menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Upg"
 
-[node name="cell" type="Button" parent="HBoxContainer"]
+[node name="cell" type="Button" parent="upgrade_menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Cell"
 
-[node name="move" type="Button" parent="HBoxContainer"]
+[node name="move" type="Button" parent="upgrade_menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Move"
 
+[node name="upgrade_menu_button" type="TouchScreenButton" parent="."]
+position = Vector2(48, 48)
+shape = SubResource("RectangleShape2D_lw8mq")
+
 [connection signal="area_entered" from="visibility_radius" to="." method="_on_visibility_radius_area_entered"]
 [connection signal="area_exited" from="visibility_radius" to="." method="_on_visibility_radius_area_exited"]
 [connection signal="timeout" from="reload_timer" to="." method="_on_reload_timer_timeout"]
-[connection signal="pressed" from="HBoxContainer/upgrade" to="." method="_on_upgrade_pressed"]
-[connection signal="pressed" from="HBoxContainer/cell" to="." method="_on_cell_pressed"]
+[connection signal="pressed" from="upgrade_menu/upgrade" to="." method="_on_upgrade_pressed"]
+[connection signal="pressed" from="upgrade_menu/cell" to="." method="_on_cell_pressed"]
+[connection signal="pressed" from="upgrade_menu_button" to="." method="_on_upgrade_menu_button_pressed"]

@@ -36,6 +36,7 @@ animations = [{
 size = Vector2(39, 63)
 
 [node name="Enemy" type="PathFollow2D"]
+v_offset = -30.0
 rotates = false
 cubic_interp = false
 loop = false
@@ -51,6 +52,7 @@ autoplay = "right"
 frame_progress = 0.563853
 
 [node name="unit_stats" parent="." instance=ExtResource("6_bfihl")]
+position = Vector2(-25, -104)
 
 [node name="HItBox" type="Area2D" parent="."]
 collision_layer = 4

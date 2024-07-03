@@ -36,6 +36,7 @@ animations = [{
 size = Vector2(66, 69)
 
 [node name="Enemy" type="PathFollow2D"]
+v_offset = -15.0
 rotates = false
 cubic_interp = false
 loop = false
@@ -46,7 +47,7 @@ Helth = 500.0
 
 [node name="Dinosaur" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bv72s")
-animation = &"left"
+animation = &"right"
 autoplay = "right"
 
 [node name="unit_stats" parent="." instance=ExtResource("6_ven1b")]
@@ -56,6 +57,5 @@ collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_f4nyh")
 one_way_collision_margin = 0.0

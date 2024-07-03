@@ -26,6 +26,6 @@ func is_outside_screen() -> bool:
 	return not viewport_rect.has_point(global_position)
 
 func _on_area_2d_area_entered(area):
-	EnemyTarget.take_damage(damage)
-	print(damage)
+	if EnemyTarget != null:
+		EnemyTarget.take_damage(damage)
 	queue_free()
