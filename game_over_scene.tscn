@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnww2ejb6lton"]
+
+[ext_resource type="Script" path="res://game_over_scene.gd" id="1_fx1vx"]
+[ext_resource type="Texture2D" uid="uid://c3ae10xaupfxx" path="res://FAMCS.TD_design-main/47 конец.png" id="1_kfnkx"]
+[ext_resource type="AudioStream" uid="uid://b85fek4dl4it" path="res://Sounds/gameover.wav" id="2_lem1u"]
+[ext_resource type="Texture2D" uid="uid://ckwd3p4vhssw5" path="res://FAMCS.TD_design-main/46 в меню.png" id="4_824bc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi5ga"]
+size = Vector2(92, 22)
+
+[node name="Game_Over_Scene" type="Node2D"]
+script = ExtResource("1_fx1vx")
+
+[node name="game_over_window" type="Sprite2D" parent="."]
+position = Vector2(648, 384)
+scale = Vector2(1.51225, 1.53293)
+texture = ExtResource("1_kfnkx")
+
+[node name="music_game_over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lem1u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1071, 124)
+scale = Vector2(4, 4)
+texture = ExtResource("4_824bc")
+
+[node name="back_to_menu" type="TouchScreenButton" parent="Sprite2D"]
+visible = false
+position = Vector2(0.75, -9.75)
+shape = SubResource("RectangleShape2D_qi5ga")
+
+[connection signal="pressed" from="Sprite2D/back_to_menu" to="." method="_on_back_to_menu_pressed"]

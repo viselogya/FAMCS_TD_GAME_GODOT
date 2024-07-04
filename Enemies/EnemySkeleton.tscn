@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://da4brwqmm42o"]
 
 [ext_resource type="Script" path="res://Enemies/EnemySkeleton.gd" id="1_yl6vm"]
-[ext_resource type="Texture2D" uid="uid://c2ggb4d4jdlqp" path="res://Enemies/Skeleton/23.L.L skelet.png" id="2_fd7eq"]
 [ext_resource type="Texture2D" uid="uid://dfkqmfdrccnty" path="res://Enemies/Skeleton/23.R.L.png" id="3_cjhca"]
+[ext_resource type="Texture2D" uid="uid://b5sysetsesfe3" path="res://Enemies/Skeleton/36.png" id="3_l64na"]
 [ext_resource type="Texture2D" uid="uid://bx1d6by51tb8c" path="res://Enemies/Skeleton/23.L.R.png" id="4_duy2x"]
 [ext_resource type="Texture2D" uid="uid://csrmc2qk587o6" path="res://Enemies/Skeleton/23.R.R.png" id="5_qih1a"]
 [ext_resource type="PackedScene" uid="uid://djjrgeh843ask" path="res://Enemies/debug_theme.tscn" id="6_u45av"]
@@ -11,10 +11,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_fd7eq")
+"texture": ExtResource("3_cjhca")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_cjhca")
+"texture": ExtResource("3_l64na")
 }],
 "loop": true,
 "name": &"left",

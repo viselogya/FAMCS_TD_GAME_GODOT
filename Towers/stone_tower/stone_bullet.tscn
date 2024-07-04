@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk3bsc31i04wx"]
+
+[ext_resource type="Script" path="res://Towers/stone_tower/stone_bullet.gd" id="1_jrybu"]
+[ext_resource type="Texture2D" uid="uid://cta50m0nei2lp" path="res://Towers/13.png" id="1_uv50q"]
+[ext_resource type="AudioStream" uid="uid://drfudmnq0vyc4" path="res://Sounds/tower.wav" id="3_ljlc7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_708w4"]
+radius = 19.52
+
+[node name="bullet" type="Node2D"]
+script = ExtResource("1_jrybu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(49, 35)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_uv50q")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+position = Vector2(-56, -16)
+scale = Vector2(0.666667, 0.666667)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(82, 22)
+shape = SubResource("CircleShape2D_708w4")
+
+[node name="music_shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ljlc7")
+volume_db = -35.0
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

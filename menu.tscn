@@ -1,31 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://vno4ui5n1bm4"]
+[gd_scene load_steps=9 format=3 uid="uid://dxt7mdteiv0k2"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_s8vu5"]
+[ext_resource type="Texture2D" uid="uid://bjyu6u7k8s0ww" path="res://FAMCS.TD_design-main/32 фон на главное меню.jpg" id="2_ie0le"]
+[ext_resource type="Texture2D" uid="uid://cva8kyyfrmxmm" path="res://FAMCS.TD_design-main/38 играть.png" id="3_7u6qw"]
+[ext_resource type="Texture2D" uid="uid://ps8xdvmui5os" path="res://FAMCS.TD_design-main/40 настройки.png" id="4_fcjr7"]
+[ext_resource type="Texture2D" uid="uid://cm1vassba5j66" path="res://FAMCS.TD_design-main/41 выход.png" id="5_7qoiq"]
 
-[node name="Menu" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea485"]
+blend_mode = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kp5gu"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv6en"]
+size = Vector2(92, 23)
+
+[node name="menu" type="Node2D"]
+position = Vector2(0, 1)
 script = ExtResource("1_s8vu5")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 1281.0
-offset_bottom = 721.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_ea485")
+position = Vector2(648, 384)
+scale = Vector2(1.26563, 0.75)
+texture = ExtResource("2_ie0le")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
-layout_mode = 2
-text = "Play"
+[node name="Play" type="Sprite2D" parent="Control"]
+texture_filter = 5
+material = SubResource("CanvasItemMaterial_kp5gu")
+position = Vector2(643, 267)
+scale = Vector2(4, 3.632)
+texture = ExtResource("3_7u6qw")
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
-layout_mode = 2
-text = "Exit
-"
+[node name="PlayButton" type="TouchScreenButton" parent="Control/Play"]
+position = Vector2(0.5, -9.91189)
+shape = SubResource("RectangleShape2D_lv6en")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="Setting" type="Sprite2D" parent="Control"]
+texture_filter = 5
+position = Vector2(643, 416)
+scale = Vector2(4, 4)
+texture = ExtResource("4_fcjr7")
+
+[node name="SettingButton" type="TouchScreenButton" parent="Control/Setting"]
+position = Vector2(0.5, -9.91189)
+shape = SubResource("RectangleShape2D_lv6en")
+
+[node name="Exit" type="Sprite2D" parent="Control"]
+texture_filter = 5
+position = Vector2(646, 565)
+scale = Vector2(4, 4)
+texture = ExtResource("5_7qoiq")
+
+[node name="ExitButton" type="TouchScreenButton" parent="Control/Exit"]
+position = Vector2(0.5, -9.91189)
+shape = SubResource("RectangleShape2D_lv6en")
+
+[connection signal="pressed" from="Control/Play/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/Setting/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Control/Exit/ExitButton" to="." method="_on_exit_button_pressed"]

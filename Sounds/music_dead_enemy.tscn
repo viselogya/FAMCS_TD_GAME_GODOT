@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3kxav44tumyt"]
+
+[ext_resource type="Script" path="res://Sounds/music_dead_enemy.gd" id="1_1yf3m"]
+[ext_resource type="AudioStream" uid="uid://cbux5oqgu64aa" path="res://Sounds/dead.wav" id="1_878in"]
+
+[node name="music_dead_enemy" type="Node2D"]
+script = ExtResource("1_1yf3m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_878in")
+volume_db = -35.0
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

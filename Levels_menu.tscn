@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpuygwnv1am24"]
+
+[ext_resource type="Script" path="res://Levels_menu.gd" id="1_t8o1s"]
+[ext_resource type="Texture2D" uid="uid://bjyu6u7k8s0ww" path="res://FAMCS.TD_design-main/32 фон на главное меню.jpg" id="2_7t7yl"]
+[ext_resource type="Texture2D" uid="uid://c3drupig28yix" path="res://FAMCS.TD_design-main/43  уровень 1.png" id="3_0x5r0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iusug"]
+blend_mode = 3
+
+[node name="Levels_menu" type="Node2D"]
+script = ExtResource("1_t8o1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_iusug")
+position = Vector2(648, 384)
+scale = Vector2(1.26563, 0.75)
+texture = ExtResource("2_7t7yl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(634, 243)
+scale = Vector2(5, 5)
+texture = ExtResource("3_0x5r0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(634, 416)
+scale = Vector2(5, 5)
+texture = ExtResource("3_0x5r0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(634, 602)
+scale = Vector2(5, 5)
+texture = ExtResource("3_0x5r0")

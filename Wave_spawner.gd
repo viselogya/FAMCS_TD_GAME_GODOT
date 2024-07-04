@@ -43,7 +43,6 @@ func _on_spawn_timer_timeout():
 	if enemies_in_wave_left > 0:
 		add_enemy()
 		var time_delay = randi() % 2
-		print(time_delay)
 		SpawnTimer.start(time_delay)
 
 func update_waves_label():

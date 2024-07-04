@@ -18,33 +18,45 @@ var watching_enemies = []
 
 @onready var reload_timer = $reload_timer 
 
-var bullet_scene = preload("res://Towers/wooden_bullet.tscn")
+@onready var bullet_scenes = [preload("res://Towers/wooden_bullet.tscn")]
+var bullet_scene
+var tower_type
 
-var tower_scene = preload("res://Towers/wooden_tower/wooden_tower.tscn")
+func get_bullet_scene_path() -> String:
+	return ""
 
+func get_type_of_tower() -> String:
+	return ""
 
 func _ready():
 	$upgrade_menu.update.connect(_on_upgrade_pressed)
 	$upgrade_menu.cell.connect(_on_cell_pressed)
+	tower_type = get_type_of_tower()
+	bullet_scene = load(get_bullet_scene_path())
+	
 		
-
 func _process(delta):
 	if watching_enemies.is_empty() == false:
 		current_state = states.ACTIVE
-		$animation_wooden_tower.set_animation("active")
+		$animation_tower.set_animation("active")
 		if loaded == true:
 			shoot(watching_enemies[0])
 	else:
 		current_state = states.PASSIVE
-		$animation_wooden_tower.set_animation("passive")
+		$animation_tower.set_animation("passive")
 
 func shoot(attack_obj : Enemy):
 	var bullet = bullet_scene.instantiate()
-	add_child(bullet)
-	
-	bullet.global_position = bullet.global_position
-	bullet.shoot_towards(attack_obj.global_position, attack_obj, level_of_tower)
-
+	match tower_type:
+		"wooden_tower":
+			add_child(bullet)
+			bullet.global_position = bullet.global_position
+			bullet.shoot_towards(attack_obj.global_position, attack_obj, level_of_tower)
+		"stone_tower":
+			add_child(bullet)
+			bullet.global_position = bullet.global_position
+			bullet.shoot_towards(attack_obj.global_position, attack_obj, level_of_tower)
+				
 	loaded = false
 	reload_timer.start(reload_time)
 

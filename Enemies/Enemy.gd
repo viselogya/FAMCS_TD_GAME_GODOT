@@ -10,11 +10,12 @@ var previous_position: Vector2
 @export var Armor: float: set = set_armor, get = get_armor
 @export var Helth: float: set = set_helth, get = get_helth
 
+@onready var music_dead_enemy = preload("res://Sounds/music_dead_enemy.tscn").instantiate()
+
 func _ready():
 	$unit_stats/Vbox/Speed.set_text("Speed: " + str(Speed))
 	$unit_stats/Vbox/Armor.set_text("Armor: " + str(Armor))
 	$unit_stats/Vbox/Helth.set_text("Helth: " + str(Helth))
-	
 	previous_position = global_position
 
 func _process(delta):
@@ -27,10 +28,13 @@ func _process(delta):
 	EnemyRotation(sprite, direction)
 	update_debug_setting()
 		
-	if get_progress_ratio() == 1 or get_helth() == 0:
+	if get_progress_ratio() == 1:
 		queue_free()
 		iam_on_end.emit()
 	
+	if get_helth() == 0:
+		get_parent().get_parent().add_child(music_dead_enemy)
+		queue_free()
 
 func update_debug_setting():
 	$unit_stats/Vbox/Speed.set_text("Speed: " + str(Speed))

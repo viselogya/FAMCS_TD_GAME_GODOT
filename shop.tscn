@@ -113,3 +113,5 @@ theme_override_font_sizes/font_size = 12
 text = "jade tower"
 
 [connection signal="pressed" from="Sprite2D/Control/GridContainer/Sprite2D5/wooden_touch_screen" to="." method="_on_wooden_touch_screen_pressed"]
+[connection signal="pressed" from="Sprite2D/Control/GridContainer/Sprite2D2/eifel_touch_screen" to="." method="_on_eifel_touch_screen_pressed"]
+[connection signal="pressed" from="Sprite2D/Control/GridContainer/Sprite2D3/stone_touch_screen" to="." method="_on_stone_touch_screen_pressed"]

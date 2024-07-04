@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://d05okel4oofl"]
+
+[ext_resource type="Texture2D" uid="uid://b37oa4pvrf8io" path="res://Towers/stone_tower/8.1.png" id="1_5y114"]
+[ext_resource type="Script" path="res://Towers/stone_tower/stone_tower.gd" id="1_ljlbo"]
+[ext_resource type="Texture2D" uid="uid://b6wybh0uva0fg" path="res://Towers/stone_tower/8.2.png" id="2_hip3m"]
+[ext_resource type="PackedScene" uid="uid://bk3bsc31i04wx" path="res://Towers/stone_tower/stone_bullet.tscn" id="2_ovsje"]
+[ext_resource type="Texture2D" uid="uid://jg4od5o17l58" path="res://Towers/stone_tower/8.3.png" id="3_fsm2l"]
+[ext_resource type="PackedScene" uid="uid://dkliv62b0lxb" path="res://upgrade_menu.tscn" id="4_qnyjk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tai1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5y114")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hip3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fsm2l")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5y114")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hip3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fsm2l")
+}],
+"loop": true,
+"name": &"passive",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1tcr"]
+radius = 300.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwmq2"]
+size = Vector2(98, 98)
+
+[node name="StoneTower" type="Node2D"]
+script = ExtResource("1_ljlbo")
+
+[node name="bullet" parent="." instance=ExtResource("2_ovsje")]
+visible = false
+
+[node name="animation_tower" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 48)
+sprite_frames = SubResource("SpriteFrames_tai1f")
+animation = &"passive"
+autoplay = "passive"
+
+[node name="visibility_radius" type="Area2D" parent="animation_tower"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="animation_tower/visibility_radius"]
+shape = SubResource("CircleShape2D_w1tcr")
+
+[node name="reload_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="upgrade_menu" parent="." instance=ExtResource("4_qnyjk")]
+visible = false
+
+[node name="upgrade_menu_button" type="TouchScreenButton" parent="."]
+position = Vector2(49, 49)
+shape = SubResource("RectangleShape2D_fwmq2")
+
+[connection signal="area_entered" from="animation_tower/visibility_radius" to="." method="_on_visibility_radius_area_entered"]
+[connection signal="area_exited" from="animation_tower/visibility_radius" to="." method="_on_visibility_radius_area_exited"]
+[connection signal="timeout" from="reload_timer" to="." method="_on_reload_timer_timeout"]
+[connection signal="pressed" from="upgrade_menu_button" to="." method="_on_upgrade_menu_button_pressed"]
