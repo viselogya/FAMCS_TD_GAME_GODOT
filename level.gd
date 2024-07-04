@@ -3,7 +3,9 @@ extends Node2D
 var Enemies = [
 	preload("res://Enemies/EnemyDinosaur.tscn"),
 	preload("res://Enemies/EnemyRobot.tscn"),
-	preload("res://Enemies/EnemyStoneGolem.tscn")]
+	preload("res://Enemies/EnemyStoneGolem.tscn"),
+	preload("res://Enemies/EnemySkeleton.tscn"),
+	preload("res://Enemies/EnemyKnight.tscn")]
 
 var Towers = [
 	preload("res://Towers/wooden_tower/wooden_tower.tscn")

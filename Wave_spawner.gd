@@ -3,7 +3,9 @@ extends Node2D
 var Enemies = [
 	preload("res://Enemies/EnemyDinosaur.tscn"),
 	preload("res://Enemies/EnemyRobot.tscn"),
-	preload("res://Enemies/EnemyStoneGolem.tscn")]
+	preload("res://Enemies/EnemyStoneGolem.tscn"),
+	preload("res://Enemies/EnemySkeleton.tscn"),
+	preload("res://Enemies/EnemyKnight.tscn")]
 
 
 @onready var EnemyPath = get_parent().get_node("EnemyPath")
@@ -38,9 +40,9 @@ func add_enemy():
 	update_waves_label()
 
 func _on_spawn_timer_timeout():
-	if quantity_enemies_in_level >= 0:
+	if enemies_in_wave_left > 0:
 		add_enemy()
-		var time_delay = randi() % 6 + 5
+		var time_delay = randi() % 2
 		print(time_delay)
 		SpawnTimer.start(time_delay)
 

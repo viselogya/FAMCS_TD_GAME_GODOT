@@ -175,8 +175,8 @@ script = ExtResource("1_vwa21")
 script = ExtResource("2_3rdsk")
 
 [node name="SpawnTimer" type="Timer" parent="Wave_spawner"]
-wait_time = 5.0
 one_shot = true
+autostart = true
 
 [node name="ground_tile" type="TileMap" parent="."]
 visibility_layer = 2

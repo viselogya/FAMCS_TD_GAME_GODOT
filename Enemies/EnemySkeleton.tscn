@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://da4brwqmm42o"]
+
+[ext_resource type="Script" path="res://Enemies/EnemySkeleton.gd" id="1_yl6vm"]
+[ext_resource type="Texture2D" uid="uid://c2ggb4d4jdlqp" path="res://Enemies/Skeleton/23.L.L skelet.png" id="2_fd7eq"]
+[ext_resource type="Texture2D" uid="uid://dfkqmfdrccnty" path="res://Enemies/Skeleton/23.R.L.png" id="3_cjhca"]
+[ext_resource type="Texture2D" uid="uid://bx1d6by51tb8c" path="res://Enemies/Skeleton/23.L.R.png" id="4_duy2x"]
+[ext_resource type="Texture2D" uid="uid://csrmc2qk587o6" path="res://Enemies/Skeleton/23.R.R.png" id="5_qih1a"]
+[ext_resource type="PackedScene" uid="uid://djjrgeh843ask" path="res://Enemies/debug_theme.tscn" id="6_u45av"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_773r0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fd7eq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cjhca")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_duy2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qih1a")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yebp"]
+size = Vector2(55, 88)
+
+[node name="Enemy" type="PathFollow2D"]
+v_offset = -20.0
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("1_yl6vm")
+Speed = 100.0
+Armor = 10.0
+Helth = 1000.0
+
+[node name="Skeleton" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_773r0")
+animation = &"left"
+autoplay = "right"
+
+[node name="unit_stats" parent="." instance=ExtResource("6_u45av")]
+position = Vector2(-22, -130)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(6.5, -5)
+shape = SubResource("RectangleShape2D_0yebp")
