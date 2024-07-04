@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dyh1mnrey5wid"]
+[gd_scene load_steps=41 format=3 uid="uid://dyh1mnrey5wid"]
 
 [ext_resource type="Texture2D" uid="uid://bg62y66ymp82r" path="res://FAMCS.TD_design-main/6.png" id="1_q5xc6"]
 [ext_resource type="Script" path="res://level.gd" id="1_vwa21"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cldrjpwxbkq1i" path="res://FAMCS.TD_design-main/4.png" id="10_528gp"]
 [ext_resource type="Texture2D" uid="uid://clt5xhnqoq5cf" path="res://FAMCS.TD_design-main/6.2 пусто.png" id="17_j2r15"]
 [ext_resource type="PackedScene" uid="uid://3vhu2q325nlc" path="res://shop.tscn" id="19_tsso5"]
+[ext_resource type="FontFile" uid="uid://bgrcc2vqd6riw" path="res://GaMaamli-Regular.ttf" id="20_xsgmx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r5t6y"]
 texture = ExtResource("2_jy3as")
@@ -212,6 +213,7 @@ alignment = 1
 [node name="Score_label" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("20_xsgmx")
 theme_override_font_sizes/font_size = 30
 text = "Score"
 
@@ -220,12 +222,14 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 1.63
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_xsgmx")
 theme_override_font_sizes/font_size = 30
 text = "number_of_waves"
 
 [node name="Exit_button" type="Button" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("20_xsgmx")
 theme_override_font_sizes/font_size = 20
 text = "Exit
 "

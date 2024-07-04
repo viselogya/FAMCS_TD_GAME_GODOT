@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dwbiyo4b4ak16"
-path="res://.godot/imported/arialmt.ttf-d2d103c8b23d2fc7ea77143a3296afed.fontdata"
+uid="uid://bgrcc2vqd6riw"
+path="res://.godot/imported/GaMaamli-Regular.ttf-2e92e59951b0658befa22388c941dcbb.fontdata"
 
 [deps]
 
-source_file="res://arialmt.ttf"
-dest_files=["res://.godot/imported/arialmt.ttf-d2d103c8b23d2fc7ea77143a3296afed.fontdata"]
+source_file="res://GaMaamli-Regular.ttf"
+dest_files=["res://.godot/imported/GaMaamli-Regular.ttf-2e92e59951b0658befa22388c941dcbb.fontdata"]
 
 [params]
 

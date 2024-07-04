@@ -20,7 +20,15 @@ var watching_enemies = []
 
 var bullet_scene = preload("res://Towers/wooden_bullet.tscn")
 
-func _process(delta): # может быть надо будет переделать
+var tower_scene = preload("res://Towers/wooden_tower/wooden_tower.tscn")
+
+
+func _ready():
+	$upgrade_menu.update.connect(_on_upgrade_pressed)
+	$upgrade_menu.cell.connect(_on_cell_pressed)
+		
+
+func _process(delta):
 	if watching_enemies.is_empty() == false:
 		current_state = states.ACTIVE
 		$animation_wooden_tower.set_animation("active")

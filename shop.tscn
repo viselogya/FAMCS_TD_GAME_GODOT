@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://3vhu2q325nlc"]
+[gd_scene load_steps=9 format=3 uid="uid://3vhu2q325nlc"]
 
 [ext_resource type="Script" path="res://shop.gd" id="1_pxlnj"]
 [ext_resource type="Texture2D" uid="uid://1a2m1363c717" path="res://FAMCS.TD_design-main/35 shop.png" id="2_1ekqv"]
 [ext_resource type="Texture2D" uid="uid://bfj25new42fu2" path="res://Towers/wooden_tower/7.2.png" id="2_cceu7"]
 [ext_resource type="Texture2D" uid="uid://ibqvme28raam" path="res://Towers/eiffel_tower/9.b.png" id="3_4fvsr"]
+[ext_resource type="FontFile" uid="uid://bgrcc2vqd6riw" path="res://GaMaamli-Regular.ttf" id="4_ldpf8"]
 [ext_resource type="Texture2D" uid="uid://b37oa4pvrf8io" path="res://Towers/stone_tower/8.1.png" id="4_udq4v"]
 [ext_resource type="Texture2D" uid="uid://d2h8cnj25ric1" path="res://Towers/jade_tower/10.1.png" id="5_8a3tq"]
 
@@ -42,11 +43,12 @@ position = Vector2(64.622, 46.6667)
 shape = SubResource("RectangleShape2D_c11yk")
 
 [node name="Label" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D5"]
-offset_left = 23.0472
-offset_top = -22.0001
-offset_right = 128.047
-offset_bottom = 0.999947
+offset_left = 27.5034
+offset_top = -22.1936
+offset_right = 132.503
+offset_bottom = 0.806492
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ldpf8")
 theme_override_font_sizes/font_size = 12
 text = "wooden tower"
 
@@ -61,11 +63,12 @@ position = Vector2(52.5092, 46.6666)
 shape = SubResource("RectangleShape2D_c11yk")
 
 [node name="Label" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D2"]
-offset_left = 21.7538
-offset_top = -20.6667
-offset_right = 126.754
-offset_bottom = 2.33334
+offset_left = 29.0
+offset_top = -21.0
+offset_right = 89.0
+offset_bottom = -5.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ldpf8")
 theme_override_font_sizes/font_size = 12
 text = "eifel tower"
 
@@ -80,11 +83,12 @@ position = Vector2(51.2045, 48.6667)
 shape = SubResource("RectangleShape2D_c11yk")
 
 [node name="Label" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D3"]
-offset_left = 15.0
-offset_top = -21.0
-offset_right = 90.0
-offset_bottom = -4.0
+offset_left = 19.0163
+offset_top = -18.8235
+offset_right = 94.0163
+offset_bottom = -1.82353
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ldpf8")
 theme_override_font_sizes/font_size = 12
 text = "stone tower"
 
@@ -99,11 +103,12 @@ position = Vector2(52.9614, 48.692)
 shape = SubResource("RectangleShape2D_c11yk")
 
 [node name="Label" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D4"]
-offset_left = 18.9148
-offset_top = -19.3434
-offset_right = 82.9148
-offset_bottom = -2.3434
+offset_left = 22.8587
+offset_top = -19.7647
+offset_right = 86.8587
+offset_bottom = -2.7647
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ldpf8")
 theme_override_font_sizes/font_size = 12
 text = "jade tower"
 
