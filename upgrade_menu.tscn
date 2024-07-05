@@ -3,27 +3,16 @@
 [ext_resource type="Script" path="res://upgrade_menu.gd" id="1_vaqb4"]
 
 [node name="upgrade_menu" type="HBoxContainer"]
-offset_left = -40.0
+offset_left = 19.0
 offset_top = -50.0
-offset_right = 57.0
+offset_right = 46.0
 offset_bottom = -28.0
 scale = Vector2(2, 2)
 script = ExtResource("1_vaqb4")
-
-[node name="upgrade" type="Button" parent="."]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Upg"
 
 [node name="cell" type="Button" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Cell"
 
-[node name="move" type="Button" parent="."]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Move"
-
-[connection signal="pressed" from="upgrade" to="." method="_on_upgrade_pressed"]
 [connection signal="pressed" from="cell" to="." method="_on_cell_pressed"]

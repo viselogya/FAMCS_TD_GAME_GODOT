@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cldrjpwxbkq1i" path="res://FAMCS.TD_design-main/4.png" id="10_528gp"]
 [ext_resource type="Texture2D" uid="uid://clt5xhnqoq5cf" path="res://FAMCS.TD_design-main/6.2 пусто.png" id="17_j2r15"]
 [ext_resource type="PackedScene" uid="uid://3vhu2q325nlc" path="res://shop.tscn" id="19_tsso5"]
-[ext_resource type="FontFile" uid="uid://bgrcc2vqd6riw" path="res://GaMaamli-Regular.ttf" id="20_xsgmx"]
+[ext_resource type="PackedScene" uid="uid://cw4ni3jrkjk0h" path="res://upper_menu_on_level.tscn" id="21_6xsl7"]
 [ext_resource type="AudioStream" uid="uid://b85fek4dl4it" path="res://Sounds/gameover.wav" id="22_dly04"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r5t6y"]
@@ -199,45 +199,10 @@ layer_0/tile_data = PackedInt32Array(393224, 2, 0, 393223, 2, 0, 458759, 2, 0, 5
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_jo1jj")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1296.0
-offset_bottom = 55.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 2594.0
-offset_bottom = 90.0
-alignment = 1
-
-[node name="Score_label" type="Label" parent="Control/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_fonts/font = ExtResource("20_xsgmx")
-theme_override_font_sizes/font_size = 30
-text = "Score"
-
-[node name="Waves_label" type="Label" parent="Control/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_stretch_ratio = 1.63
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("20_xsgmx")
-theme_override_font_sizes/font_size = 30
-text = "number_of_waves"
-
-[node name="Exit_button" type="Button" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("20_xsgmx")
-theme_override_font_sizes/font_size = 20
-text = "Exit
-"
-
 [node name="music_game_over" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_dly04")
 volume_db = -20.0
 
+[node name="upper_menu_on_level" parent="." instance=ExtResource("21_6xsl7")]
+
 [connection signal="timeout" from="Wave_spawner/SpawnTimer" to="Wave_spawner" method="_on_spawn_timer_timeout"]
-[connection signal="pressed" from="Control/HBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpuygwnv1am24"]
+[gd_scene load_steps=7 format=3 uid="uid://cpuygwnv1am24"]
 
 [ext_resource type="Script" path="res://Levels_menu.gd" id="1_t8o1s"]
 [ext_resource type="Texture2D" uid="uid://bjyu6u7k8s0ww" path="res://FAMCS.TD_design-main/32 фон на главное меню.jpg" id="2_7t7yl"]
 [ext_resource type="Texture2D" uid="uid://c3drupig28yix" path="res://FAMCS.TD_design-main/43  уровень 1.png" id="3_0x5r0"]
+[ext_resource type="Texture2D" uid="uid://cseoxx6ooq8je" path="res://FAMCS.TD_design-main/44 уровень 2.png" id="4_cg60e"]
+[ext_resource type="Texture2D" uid="uid://cqyqyyik4fw5j" path="res://FAMCS.TD_design-main/45 уровень 3.png" id="5_4ci3s"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iusug"]
 blend_mode = 3
@@ -22,12 +24,21 @@ position = Vector2(634, 243)
 scale = Vector2(5, 5)
 texture = ExtResource("3_0x5r0")
 
+[node name="go_to_level_1" type="Button" parent="Sprite2D2"]
+offset_left = -46.0
+offset_top = -22.0
+offset_right = 47.0
+offset_bottom = 2.0
+flat = true
+
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(634, 416)
 scale = Vector2(5, 5)
-texture = ExtResource("3_0x5r0")
+texture = ExtResource("4_cg60e")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(634, 602)
 scale = Vector2(5, 5)
-texture = ExtResource("3_0x5r0")
+texture = ExtResource("5_4ci3s")
+
+[connection signal="pressed" from="Sprite2D2/go_to_level_1" to="." method="_on_go_to_level_1_pressed"]

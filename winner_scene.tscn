@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdkhghwvo33jt"]
+
+[ext_resource type="Texture2D" uid="uid://b7qklds1fm3bo" path="res://FAMCS.TD_design-main/winner.jpeg" id="1_0qk6b"]
+[ext_resource type="Script" path="res://winner_scene.gd" id="1_mh8eq"]
+[ext_resource type="FontFile" uid="uid://bgrcc2vqd6riw" path="res://GaMaamli-Regular.ttf" id="2_eguw5"]
+[ext_resource type="AudioStream" uid="uid://c7gpeqiwee1go" path="res://Sounds/music_win.mp3" id="4_j8rip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxaoe"]
+size = Vector2(1296, 768)
+
+[node name="Winner_scene" type="Node2D"]
+script = ExtResource("1_mh8eq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(648, 384)
+scale = Vector2(1.0125, 1.06667)
+texture = ExtResource("1_0qk6b")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -159.0
+offset_top = -90.0
+offset_right = 169.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eguw5")
+theme_override_font_sizes/font_size = 100
+text = "VICTORY"
+
+[node name="Label2" type="Label" parent="Sprite2D"]
+offset_left = -517.531
+offset_top = 144.375
+offset_right = 810.469
+offset_bottom = 269.375
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eguw5")
+theme_override_font_sizes/font_size = 80
+text = "click on any button to continue"
+
+[node name="Back_to_menu" type="TouchScreenButton" parent="."]
+position = Vector2(648, 384)
+shape = SubResource("RectangleShape2D_rxaoe")
+
+[node name="music_winner" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_j8rip")
+
+[connection signal="pressed" from="Back_to_menu" to="." method="_on_back_to_menu_pressed"]

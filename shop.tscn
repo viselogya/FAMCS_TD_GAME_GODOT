@@ -13,6 +13,7 @@ size = Vector2(96, 99)
 
 [node name="shop" type="Node2D"]
 script = ExtResource("1_pxlnj")
+balance = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2210, 765)
@@ -52,6 +53,16 @@ theme_override_fonts/font = ExtResource("4_ldpf8")
 theme_override_font_sizes/font_size = 12
 text = "wooden tower"
 
+[node name="Label2" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D5"]
+offset_left = 46.0
+offset_top = 102.0
+offset_right = 85.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ldpf8")
+theme_override_font_sizes/font_size = 25
+text = "10$"
+
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D/Control/GridContainer"]
 position = Vector2(66.7255, -63.6833)
 scale = Vector2(2.20124, 1.3089)
@@ -71,6 +82,16 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ldpf8")
 theme_override_font_sizes/font_size = 12
 text = "eifel tower"
+
+[node name="Label2" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D2"]
+offset_left = 36.6213
+offset_top = 101.5
+offset_right = 75.6213
+offset_bottom = 133.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ldpf8")
+theme_override_font_sizes/font_size = 25
+text = "30$"
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Control/GridContainer"]
 position = Vector2(-209.695, 171.264)
@@ -92,6 +113,16 @@ theme_override_fonts/font = ExtResource("4_ldpf8")
 theme_override_font_sizes/font_size = 12
 text = "stone tower"
 
+[node name="Label2" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D3"]
+offset_left = 29.4565
+offset_top = 101.177
+offset_right = 68.4565
+offset_bottom = 133.177
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ldpf8")
+theme_override_font_sizes/font_size = 25
+text = "20$"
+
 [node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Control/GridContainer"]
 position = Vector2(67.7459, 171.919)
 scale = Vector2(2.23199, 1.39071)
@@ -111,6 +142,27 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ldpf8")
 theme_override_font_sizes/font_size = 12
 text = "jade tower"
+
+[node name="Label2" type="Label" parent="Sprite2D/Control/GridContainer/Sprite2D4"]
+offset_left = 38.8599
+offset_top = 103.058
+offset_right = 77.8599
+offset_bottom = 135.058
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ldpf8")
+theme_override_font_sizes/font_size = 25
+text = "50$"
+
+[node name="Balance_label" type="Label" parent="Sprite2D/Control"]
+layout_mode = 0
+offset_left = -73.0702
+offset_top = -144.181
+offset_right = 152.93
+offset_bottom = -92.1806
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ldpf8")
+theme_override_font_sizes/font_size = 41
+text = "Balance: 0"
 
 [connection signal="pressed" from="Sprite2D/Control/GridContainer/Sprite2D5/wooden_touch_screen" to="." method="_on_wooden_touch_screen_pressed"]
 [connection signal="pressed" from="Sprite2D/Control/GridContainer/Sprite2D2/eifel_touch_screen" to="." method="_on_eifel_touch_screen_pressed"]

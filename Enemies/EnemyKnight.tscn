@@ -44,6 +44,7 @@ script = ExtResource("1_77o8a")
 Speed = 300.0
 Armor = 10.0
 Helth = 100.0
+Gold_on_kill = 10
 
 [node name="Knight" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rvep4")

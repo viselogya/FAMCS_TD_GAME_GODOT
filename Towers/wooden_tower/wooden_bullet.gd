@@ -10,9 +10,8 @@ var velocity = Vector2.ZERO
 
 var damage: float = 200.0
 
-func shoot_towards(target_position: Vector2, EnemyObj : Enemy, level : int):
+func shoot_towards(target_position: Vector2, EnemyObj : Enemy):
 	music_shoot.play()
-	damage += level * 50
 	velocity = (target_position - global_position).normalized() * speed
 	EnemyTarget = EnemyObj
 

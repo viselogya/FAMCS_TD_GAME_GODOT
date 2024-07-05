@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://by4ao1kgheppf"]
+
+[ext_resource type="Script" path="res://eifel_tower.gd" id="1_vmcvp"]
+[ext_resource type="Texture2D" uid="uid://ibqvme28raam" path="res://Towers/eiffel_tower/9.b.png" id="2_or1yt"]
+[ext_resource type="PackedScene" uid="uid://dkliv62b0lxb" path="res://upgrade_menu.tscn" id="4_ecmho"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suayi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_or1yt")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_or1yt")
+}],
+"loop": true,
+"name": &"passive",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6esb"]
+radius = 300.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7putm"]
+size = Vector2(96, 96)
+
+[node name="eifel_tower" type="Node2D"]
+script = ExtResource("1_vmcvp")
+
+[node name="animation_tower" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 48)
+sprite_frames = SubResource("SpriteFrames_suayi")
+animation = &"active"
+autoplay = "passive"
+
+[node name="visibility_radius" type="Area2D" parent="animation_tower"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="animation_tower/visibility_radius"]
+shape = SubResource("CircleShape2D_g6esb")
+
+[node name="reload_timer" type="Timer" parent="."]
+
+[node name="upgrade_menu" parent="." instance=ExtResource("4_ecmho")]
+
+[node name="upgrade_menu_button" type="TouchScreenButton" parent="."]
+position = Vector2(48, 48)
+shape = SubResource("RectangleShape2D_7putm")
+
+[connection signal="area_entered" from="animation_tower/visibility_radius" to="." method="_on_visibility_radius_area_entered"]
+[connection signal="area_exited" from="animation_tower/visibility_radius" to="." method="_on_visibility_radius_area_exited"]

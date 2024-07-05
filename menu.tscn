@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxt7mdteiv0k2"]
+[gd_scene load_steps=8 format=3 uid="uid://dxt7mdteiv0k2"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_s8vu5"]
 [ext_resource type="Texture2D" uid="uid://bjyu6u7k8s0ww" path="res://FAMCS.TD_design-main/32 фон на главное меню.jpg" id="2_ie0le"]
 [ext_resource type="Texture2D" uid="uid://cva8kyyfrmxmm" path="res://FAMCS.TD_design-main/38 играть.png" id="3_7u6qw"]
-[ext_resource type="Texture2D" uid="uid://ps8xdvmui5os" path="res://FAMCS.TD_design-main/40 настройки.png" id="4_fcjr7"]
 [ext_resource type="Texture2D" uid="uid://cm1vassba5j66" path="res://FAMCS.TD_design-main/41 выход.png" id="5_7qoiq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea485"]
@@ -37,7 +36,7 @@ offset_bottom = 40.0
 [node name="Play" type="Sprite2D" parent="Control"]
 texture_filter = 5
 material = SubResource("CanvasItemMaterial_kp5gu")
-position = Vector2(643, 267)
+position = Vector2(650, 341)
 scale = Vector2(4, 3.632)
 texture = ExtResource("3_7u6qw")
 
@@ -45,19 +44,9 @@ texture = ExtResource("3_7u6qw")
 position = Vector2(0.5, -9.91189)
 shape = SubResource("RectangleShape2D_lv6en")
 
-[node name="Setting" type="Sprite2D" parent="Control"]
-texture_filter = 5
-position = Vector2(643, 416)
-scale = Vector2(4, 4)
-texture = ExtResource("4_fcjr7")
-
-[node name="SettingButton" type="TouchScreenButton" parent="Control/Setting"]
-position = Vector2(0.5, -9.91189)
-shape = SubResource("RectangleShape2D_lv6en")
-
 [node name="Exit" type="Sprite2D" parent="Control"]
 texture_filter = 5
-position = Vector2(646, 565)
+position = Vector2(650, 524)
 scale = Vector2(4, 4)
 texture = ExtResource("5_7qoiq")
 
@@ -66,5 +55,4 @@ position = Vector2(0.5, -9.91189)
 shape = SubResource("RectangleShape2D_lv6en")
 
 [connection signal="pressed" from="Control/Play/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Control/Setting/SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="Control/Exit/ExitButton" to="." method="_on_exit_button_pressed"]

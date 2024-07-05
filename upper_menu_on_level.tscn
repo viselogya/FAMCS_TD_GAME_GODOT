@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw4ni3jrkjk0h"]
+
+[ext_resource type="Script" path="res://upper_menu_on_level.gd" id="1_j2p1j"]
+[ext_resource type="FontFile" uid="uid://bgrcc2vqd6riw" path="res://GaMaamli-Regular.ttf" id="1_v7gxy"]
+
+[node name="upper_menu_on_level" type="HBoxContainer"]
+offset_right = 2594.0
+offset_bottom = 90.0
+alignment = 1
+script = ExtResource("1_j2p1j")
+
+[node name="Waves_label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 1.63
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_v7gxy")
+theme_override_font_sizes/font_size = 30
+text = "number_of_waves"
+
+[node name="Exit_button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_v7gxy")
+theme_override_font_sizes/font_size = 20
+text = "Exit
+"
+
+[connection signal="pressed" from="Exit_button" to="." method="_on_exit_button_pressed"]

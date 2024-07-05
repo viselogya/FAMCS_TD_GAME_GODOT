@@ -44,6 +44,7 @@ script = ExtResource("1_yl6vm")
 Speed = 100.0
 Armor = 10.0
 Helth = 1000.0
+Gold_on_kill = 15
 
 [node name="Skeleton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_773r0")

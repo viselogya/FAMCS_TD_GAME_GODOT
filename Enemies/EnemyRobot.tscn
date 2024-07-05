@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mfg"]
-size = Vector2(39, 63)
+size = Vector2(70, 91)
 
 [node name="Enemy" type="PathFollow2D"]
 v_offset = -30.0
@@ -44,6 +44,7 @@ script = ExtResource("1_16yfc")
 Speed = 300.0
 Armor = 10.0
 Helth = 300.0
+Gold_on_kill = 20
 
 [node name="Robot" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_osbl4")
@@ -59,5 +60,5 @@ collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HItBox"]
-position = Vector2(-4.5, 13.5)
+position = Vector2(0.5, 15.5)
 shape = SubResource("RectangleShape2D_q4mfg")
