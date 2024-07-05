@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvqt6woaxmgam"]
+
+[ext_resource type="Texture2D" uid="uid://d08psifcqp40y" path="res://Towers/jade_tower/10.png" id="1_dolqd"]
+[ext_resource type="Script" path="res://Towers/jade_tower.gd" id="1_tnr4y"]
+[ext_resource type="Texture2D" uid="uid://d2h8cnj25ric1" path="res://Towers/jade_tower/10.1.png" id="2_7rt8i"]
+[ext_resource type="PackedScene" uid="uid://dkliv62b0lxb" path="res://upgrade_menu.tscn" id="3_c2cjb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rssqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dolqd")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7rt8i")
+}],
+"loop": true,
+"name": &"passive",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7g18t"]
+radius = 300.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xohco"]
+size = Vector2(96, 96)
+
+[node name="jade_tower" type="Node2D"]
+script = ExtResource("1_tnr4y")
+
+[node name="bullet" type="Node2D" parent="."]
+
+[node name="LaserRay" type="RayCast2D" parent="bullet"]
+
+[node name="LaserLine" type="Line2D" parent="bullet"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 48)
+sprite_frames = SubResource("SpriteFrames_rssqh")
+animation = &"passive"
+autoplay = "active"
+
+[node name="visibility_radius" type="Area2D" parent="AnimatedSprite2D"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/visibility_radius"]
+shape = SubResource("CircleShape2D_7g18t")
+
+[node name="reload_timer" type="Timer" parent="."]
+
+[node name="upgrade_menu" parent="." instance=ExtResource("3_c2cjb")]
+
+[node name="upgrade_menu_button" type="TouchScreenButton" parent="."]
+position = Vector2(48, 48)
+shape = SubResource("RectangleShape2D_xohco")
+
+[connection signal="area_entered" from="AnimatedSprite2D/visibility_radius" to="." method="_on_visibility_radius_area_entered"]
+[connection signal="area_exited" from="AnimatedSprite2D/visibility_radius" to="." method="_on_visibility_radius_area_exited"]
+[connection signal="timeout" from="reload_timer" to="." method="_on_reload_timer_timeout"]

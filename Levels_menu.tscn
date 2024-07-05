@@ -13,13 +13,13 @@ blend_mode = 3
 script = ExtResource("1_t8o1s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 material = SubResource("CanvasItemMaterial_iusug")
 position = Vector2(648, 384)
 scale = Vector2(1.26563, 0.75)
 texture = ExtResource("2_7t7yl")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 5
 position = Vector2(634, 243)
 scale = Vector2(5, 5)
 texture = ExtResource("3_0x5r0")
@@ -32,11 +32,13 @@ offset_bottom = 2.0
 flat = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 5
 position = Vector2(634, 416)
 scale = Vector2(5, 5)
 texture = ExtResource("4_cg60e")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
+texture_filter = 5
 position = Vector2(634, 602)
 scale = Vector2(5, 5)
 texture = ExtResource("5_4ci3s")
