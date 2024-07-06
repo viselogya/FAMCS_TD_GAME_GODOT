@@ -32,7 +32,6 @@ radius = 300.0
 size = Vector2(96, 96)
 
 [node name="wooden_tower" type="Node2D"]
-z_index = 6
 script = ExtResource("1_jwyb0")
 
 [node name="bullet" parent="." instance=ExtResource("2_jfm5i")]

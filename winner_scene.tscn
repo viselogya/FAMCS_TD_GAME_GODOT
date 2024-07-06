@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b7qklds1fm3bo" path="res://FAMCS.TD_design-main/winner.jpeg" id="1_0qk6b"]
 [ext_resource type="Script" path="res://winner_scene.gd" id="1_mh8eq"]
 [ext_resource type="FontFile" uid="uid://bgrcc2vqd6riw" path="res://GaMaamli-Regular.ttf" id="2_eguw5"]
-[ext_resource type="AudioStream" uid="uid://c7gpeqiwee1go" path="res://Sounds/music_win.mp3" id="4_j8rip"]
+[ext_resource type="AudioStream" uid="uid://dlo242mqxoo4r" path="res://Sounds/ljnn.mp3" id="4_kt1mt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxaoe"]
 size = Vector2(1296, 768)
@@ -41,6 +41,6 @@ position = Vector2(648, 384)
 shape = SubResource("RectangleShape2D_rxaoe")
 
 [node name="music_winner" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_j8rip")
+stream = ExtResource("4_kt1mt")
 
 [connection signal="pressed" from="Back_to_menu" to="." method="_on_back_to_menu_pressed"]
