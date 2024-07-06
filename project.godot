@@ -23,7 +23,6 @@ MusicPlayer="*res://Sounds/music_player.tscn"
 
 window/size/viewport_width=1296
 window/size/viewport_height=768
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]

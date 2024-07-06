@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://level.gd" id="1_d67jg"]
 [ext_resource type="PackedScene" uid="uid://3vhu2q325nlc" path="res://shop.tscn" id="2_1i6dq"]
-[ext_resource type="Script" path="res://Wave_spawner.gd" id="3_iy885"]
+[ext_resource type="PackedScene" uid="uid://d1fxy1txwbdk7" path="res://wave_spawner.tscn" id="3_k4wsu"]
 [ext_resource type="Texture2D" uid="uid://dwni1kmj6185a" path="res://FAMCS.TD_design-main/22  cactus.png" id="4_u282h"]
 [ext_resource type="Texture2D" uid="uid://cruu2sl8002sq" path="res://FAMCS.TD_design-main/21 череп.png" id="5_rf10i"]
 [ext_resource type="Texture2D" uid="uid://cgnr0jfff5x1" path="res://FAMCS.TD_design-main/5.png" id="6_c1brj"]
@@ -175,12 +175,8 @@ script = ExtResource("1_d67jg")
 [node name="shop" parent="." instance=ExtResource("2_1i6dq")]
 balance = 25
 
-[node name="Wave_spawner" type="Node2D" parent="."]
-script = ExtResource("3_iy885")
-
-[node name="SpawnTimer" type="Timer" parent="Wave_spawner"]
-one_shot = true
-autostart = true
+[node name="Wave_spawner" parent="." instance=ExtResource("3_k4wsu")]
+quantity_enemies_in_level = 30
 
 [node name="ground_tile" type="TileMap" parent="."]
 visibility_layer = 2
@@ -218,5 +214,4 @@ offset_right = 47.0
 offset_bottom = 2.0
 flat = true
 
-[connection signal="timeout" from="Wave_spawner/SpawnTimer" to="Wave_spawner" method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="Sprite2D/back_to_menu" to="." method="_on_back_to_menu_pressed"]

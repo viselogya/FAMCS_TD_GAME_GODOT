@@ -14,20 +14,16 @@ var Enemies = [
 @onready var WavesLabel = get_parent().get_node("upper_menu_on_level/Waves_label")
 @onready var shop = $"../shop"
 
-@export var quantity_enemies_in_level = 40
-var enemies_in_wave_left = quantity_enemies_in_level
+@export var quantity_enemies_in_level : int
+@onready var enemies_in_wave_left = quantity_enemies_in_level
 
 var enemeis_died : int = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	print(quantity_enemies_in_level)
 	SpawnTimer.start()
 	update_waves_label()
 	randomize()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func random_choice(array):
