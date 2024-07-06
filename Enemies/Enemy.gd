@@ -20,7 +20,7 @@ func _ready():
 	$unit_stats/Vbox/Speed.set_text("Speed: " + str(Speed))
 	$unit_stats/Vbox/Armor.set_text("Armor: " + str(Armor))
 	$unit_stats/Vbox/Helth.set_text("Helth: " + str(Helth))
-	$unit_stats.set_visible(false)
+	#$unit_stats.set_visible(false)
 	previous_position = global_position
 	saved_speed = Speed
 	print(saved_speed)

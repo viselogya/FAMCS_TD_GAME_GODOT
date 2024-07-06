@@ -55,7 +55,7 @@ func shoot(attack_obj : Enemy):
 func _on_visibility_radius_area_entered(area):
 	watching_enemies.append(area.get_parent())
 	if tower_type == "eifel_tower":
-		area.get_parent().set_speed(50)
+		area.get_parent().set_speed(area.get_parent().get_speed() - 100)
 
 func _on_visibility_radius_area_exited(area):
 	watching_enemies.erase(area.get_parent())

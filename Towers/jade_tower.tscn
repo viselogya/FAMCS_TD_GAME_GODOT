@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvqt6woaxmgam"]
+[gd_scene load_steps=10 format=3 uid="uid://cvqt6woaxmgam"]
 
 [ext_resource type="Texture2D" uid="uid://d08psifcqp40y" path="res://Towers/jade_tower/10.png" id="1_dolqd"]
 [ext_resource type="Script" path="res://Towers/jade_tower.gd" id="1_tnr4y"]
-[ext_resource type="PackedScene" uid="uid://d4c1ncu1dfiha" path="res://Towers/wooden_bullet.tscn" id="2_2bx24"]
 [ext_resource type="Texture2D" uid="uid://d2h8cnj25ric1" path="res://Towers/jade_tower/10.1.png" id="2_7rt8i"]
+[ext_resource type="Script" path="res://Towers/laser.gd" id="2_hnmbs"]
 [ext_resource type="PackedScene" uid="uid://dkliv62b0lxb" path="res://upgrade_menu.tscn" id="3_c2cjb"]
+[ext_resource type="AudioStream" uid="uid://vr12bgtg80i2" path="res://Sounds/inferno.wav" id="3_nqm7v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rssqh"]
 animations = [{
@@ -33,10 +34,19 @@ size = Vector2(96, 96)
 
 [node name="jade_tower" type="Node2D"]
 script = ExtResource("1_tnr4y")
-reload_time = 1.5
 
-[node name="wooden_bullet" parent="." instance=ExtResource("2_2bx24")]
-damage = 350.0
+[node name="laser_line" type="Line2D" parent="."]
+z_index = 1
+script = ExtResource("2_hnmbs")
+laser_width = 10.0
+
+[node name="damage_timer" type="Timer" parent="laser_line"]
+wait_time = 0.3
+autostart = true
+
+[node name="music_laser" type="AudioStreamPlayer2D" parent="laser_line"]
+stream = ExtResource("3_nqm7v")
+volume_db = -10.306
 
 [node name="animation_tower" type="AnimatedSprite2D" parent="."]
 position = Vector2(48, 48)
@@ -51,8 +61,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animation_tower/visibility_radius"]
 shape = SubResource("CircleShape2D_7g18t")
 
-[node name="reload_timer" type="Timer" parent="."]
-
 [node name="upgrade_menu" parent="." instance=ExtResource("3_c2cjb")]
 visible = false
 z_index = 1
@@ -61,7 +69,7 @@ z_index = 1
 position = Vector2(48, 48)
 shape = SubResource("RectangleShape2D_xohco")
 
+[connection signal="timeout" from="laser_line/damage_timer" to="laser_line" method="_on_damage_timer_timeout"]
 [connection signal="area_entered" from="animation_tower/visibility_radius" to="." method="_on_visibility_radius_area_entered"]
 [connection signal="area_exited" from="animation_tower/visibility_radius" to="." method="_on_visibility_radius_area_exited"]
-[connection signal="timeout" from="reload_timer" to="." method="_on_reload_timer_timeout"]
 [connection signal="pressed" from="upgrade_menu_button" to="." method="_on_upgrade_menu_button_pressed"]
