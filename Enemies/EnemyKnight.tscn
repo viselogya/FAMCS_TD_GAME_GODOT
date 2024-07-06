@@ -41,9 +41,9 @@ rotates = false
 cubic_interp = false
 loop = false
 script = ExtResource("1_77o8a")
-Speed = 300.0
+Speed = 250.0
 Armor = 10.0
-Helth = 100.0
+Helth = 600.0
 Gold_on_kill = 10
 
 [node name="Knight" type="AnimatedSprite2D" parent="."]

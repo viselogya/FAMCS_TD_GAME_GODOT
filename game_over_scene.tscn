@@ -25,7 +25,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("4_824bc")
 
 [node name="back_to_menu" type="TouchScreenButton" parent="Sprite2D"]
-visible = false
 position = Vector2(0.75, -9.75)
 shape = SubResource("RectangleShape2D_qi5ga")
 

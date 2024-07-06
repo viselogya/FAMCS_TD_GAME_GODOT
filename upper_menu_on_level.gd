@@ -1,6 +1,5 @@
 extends HBoxContainer
 
-@onready var score_label = $Score_label
 @onready var waves_label = $Waves_label
 @onready var exit_button = $Exit_button
 	

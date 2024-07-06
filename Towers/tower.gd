@@ -37,7 +37,7 @@ func _process(delta):
 	if watching_enemies.is_empty() == false:
 		current_state = states.ACTIVE
 		$animation_tower.set_animation("active")
-		if loaded == true:
+		if loaded == true and tower_type != "eifel_tower":
 			shoot(watching_enemies[0])
 	else:
 		current_state = states.PASSIVE
@@ -45,18 +45,10 @@ func _process(delta):
 
 
 func shoot(attack_obj : Enemy):
-	match tower_type:
-		"wooden_tower":
-			var bullet = bullet_scene.instantiate()
-			add_child(bullet)
-			bullet.global_position = bullet.global_position
-			bullet.shoot_towards(attack_obj.global_position, attack_obj)
-		"stone_tower":
-			var bullet = bullet_scene.instantiate()
-			add_child(bullet)
-			bullet.global_position = bullet.global_position
-			bullet.shoot_towards(attack_obj.global_position, attack_obj)
-				
+	var bullet = bullet_scene.instantiate()
+	add_child(bullet)
+	bullet.global_position = bullet.global_position
+	bullet.shoot_towards(attack_obj.global_position, attack_obj)
 	loaded = false
 	reload_timer.start(reload_time)
 
@@ -75,6 +67,7 @@ func _on_reload_timer_timeout():
 
 func _on_cell_pressed():
 	tower_is_cell.emit(get_global_position())
+	get_tree
 	queue_free()
 	
 func _on_upgrade_menu_button_pressed():

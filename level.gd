@@ -10,7 +10,8 @@ var Enemies = [
 var Towers = [
 	preload("res://Towers/wooden_tower.tscn"),
 	preload("res://Towers/stone_tower/stone_tower.tscn"),
-	preload("res://eifel_tower.tscn")
+	preload("res://eifel_tower.tscn"),
+	preload("res://Towers/jade_tower.tscn")
 ]
 var tower_number : int
 
@@ -27,6 +28,7 @@ func _ready():
 	shop.wooden_tower_signal.connect(create_wooden_tower)
 	shop.stone_tower_signal.connect(create_stone_tower)
 	shop.eifel_tower_signal.connect(create_eifel_tower)
+	shop.jade_tower_signal.connect(create_jade_tower)
 	randomize()
 	build_cells = build_zone.get_used_cells(0)
 
@@ -52,6 +54,15 @@ func switch_build_mode():
 
 func _restore_cell_for_build(local_pos):
 	build_cells.append(build_zone.local_to_map(to_local(local_pos)))
+	match tower_number:
+		0:
+			shop.update_balance(shop.wooden_tower_price)
+		1:
+			shop.update_balance(shop.stone_tower_price)
+		2:
+			shop.update_balance(shop.eifel_tower_price)
+		3:
+			shop.update_balance(shop.jade_tower_price)
 
 func enemy_on_end():
 	base_hp -= 1
@@ -78,3 +89,11 @@ func create_stone_tower():
 func create_eifel_tower():
 	tower_number = 2
 	switch_build_mode()
+
+func create_jade_tower():
+	tower_number = 3
+	switch_build_mode()
+
+
+func _on_back_to_menu_pressed():
+	get_tree().change_scene_to_file("res://menu.tscn")

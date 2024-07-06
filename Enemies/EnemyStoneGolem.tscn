@@ -43,8 +43,8 @@ loop = false
 script = ExtResource("1_24rxa")
 Speed = 200.0
 Armor = 10.0
-Helth = 1000.0
-Gold_on_kill = 20
+Helth = 1200.0
+Gold_on_kill = 40
 
 [node name="StoneGolem" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w3y10")

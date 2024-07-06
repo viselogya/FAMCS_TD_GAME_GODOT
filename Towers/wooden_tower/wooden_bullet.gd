@@ -8,7 +8,7 @@ var velocity = Vector2.ZERO
 
 @onready var music_shoot = $music_shoot
 
-var damage: float = 200.0
+@export var damage: float = 200.0
 
 func shoot_towards(target_position: Vector2, EnemyObj : Enemy):
 	music_shoot.play()

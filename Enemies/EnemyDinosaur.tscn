@@ -43,8 +43,8 @@ loop = false
 script = ExtResource("1_ev6aj")
 Speed = 100.0
 Armor = 10.0
-Helth = 500.0
-Gold_on_kill = 5
+Helth = 650.0
+Gold_on_kill = 10
 
 [node name="Dinosaur" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bv72s")

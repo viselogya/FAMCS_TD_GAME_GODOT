@@ -4,6 +4,7 @@ extends Node2D
 signal wooden_tower_signal()
 signal eifel_tower_signal()
 signal stone_tower_signal()
+signal jade_tower_signal()
 
 @onready var balance_label = $Sprite2D/Control/Balance_label
 
@@ -48,5 +49,16 @@ func _on_stone_touch_screen_pressed():
 	else:
 		pass
 		
+func _on_jade_touch_screen_pressed():
+	if balance >= jade_tower_price:
+		jade_tower_signal.emit()
+		update_balance_label()
+	else:
+		pass
+	
 func update_balance_label():
 	balance_label.set_text("Balance: " + str(balance))
+
+
+
+	

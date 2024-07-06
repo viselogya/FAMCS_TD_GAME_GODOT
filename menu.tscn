@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxt7mdteiv0k2"]
+[gd_scene load_steps=9 format=3 uid="uid://dxt7mdteiv0k2"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_s8vu5"]
 [ext_resource type="Texture2D" uid="uid://bjyu6u7k8s0ww" path="res://FAMCS.TD_design-main/32 фон на главное меню.jpg" id="2_ie0le"]
 [ext_resource type="Texture2D" uid="uid://cva8kyyfrmxmm" path="res://FAMCS.TD_design-main/38 играть.png" id="3_7u6qw"]
+[ext_resource type="FontFile" uid="uid://bgrcc2vqd6riw" path="res://GaMaamli-Regular.ttf" id="5_3rrba"]
 [ext_resource type="Texture2D" uid="uid://cm1vassba5j66" path="res://FAMCS.TD_design-main/41 выход.png" id="5_7qoiq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea485"]
@@ -53,6 +54,26 @@ texture = ExtResource("5_7qoiq")
 [node name="ExitButton" type="TouchScreenButton" parent="Control/Exit"]
 position = Vector2(0.5, -9.91189)
 shape = SubResource("RectangleShape2D_lv6en")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 231.0
+offset_top = 590.0
+offset_right = 1072.0
+offset_bottom = 693.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3rrba")
+theme_override_font_sizes/font_size = 50
+text = "if 5 enemies reach the end you will lose"
+
+[node name="game_name" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = -527.0
+offset_right = 726.0
+offset_bottom = -439.0
+theme_override_fonts/font = ExtResource("5_3rrba")
+theme_override_font_sizes/font_size = 70
+text = "FAMCS Tower Defense"
 
 [connection signal="pressed" from="Control/Play/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/Exit/ExitButton" to="." method="_on_exit_button_pressed"]

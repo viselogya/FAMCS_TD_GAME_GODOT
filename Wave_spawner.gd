@@ -14,7 +14,7 @@ var Enemies = [
 @onready var WavesLabel = get_parent().get_node("upper_menu_on_level/Waves_label")
 @onready var shop = $"../shop"
 
-@export var quantity_enemies_in_level = 10
+@export var quantity_enemies_in_level = 40
 var enemies_in_wave_left = quantity_enemies_in_level
 
 var enemeis_died : int = 0
@@ -51,7 +51,7 @@ func enemy_died():
 func _on_spawn_timer_timeout():
 	if enemies_in_wave_left > 0:
 		add_enemy()
-		var time_delay = randi() % 2
+		var time_delay = randi() % 3 + 1
 		SpawnTimer.start(time_delay)
 
 func update_waves_label():

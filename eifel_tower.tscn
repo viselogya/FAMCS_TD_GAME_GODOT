@@ -48,6 +48,8 @@ shape = SubResource("CircleShape2D_g6esb")
 [node name="reload_timer" type="Timer" parent="."]
 
 [node name="upgrade_menu" parent="." instance=ExtResource("4_ecmho")]
+visible = false
+z_index = 1
 
 [node name="upgrade_menu_button" type="TouchScreenButton" parent="."]
 position = Vector2(48, 48)
@@ -55,3 +57,4 @@ shape = SubResource("RectangleShape2D_7putm")
 
 [connection signal="area_entered" from="animation_tower/visibility_radius" to="." method="_on_visibility_radius_area_entered"]
 [connection signal="area_exited" from="animation_tower/visibility_radius" to="." method="_on_visibility_radius_area_exited"]
+[connection signal="pressed" from="upgrade_menu_button" to="." method="_on_upgrade_menu_button_pressed"]

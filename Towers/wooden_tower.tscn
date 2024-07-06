@@ -57,6 +57,7 @@ one_shot = true
 
 [node name="upgrade_menu" parent="." instance=ExtResource("5_2ytw5")]
 visible = false
+z_index = 1
 
 [node name="upgrade_menu_button" type="TouchScreenButton" parent="."]
 position = Vector2(48, 48)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpuygwnv1am24"]
+[gd_scene load_steps=8 format=3 uid="uid://cpuygwnv1am24"]
 
 [ext_resource type="Script" path="res://Levels_menu.gd" id="1_t8o1s"]
 [ext_resource type="Texture2D" uid="uid://bjyu6u7k8s0ww" path="res://FAMCS.TD_design-main/32 фон на главное меню.jpg" id="2_7t7yl"]
 [ext_resource type="Texture2D" uid="uid://c3drupig28yix" path="res://FAMCS.TD_design-main/43  уровень 1.png" id="3_0x5r0"]
 [ext_resource type="Texture2D" uid="uid://cseoxx6ooq8je" path="res://FAMCS.TD_design-main/44 уровень 2.png" id="4_cg60e"]
 [ext_resource type="Texture2D" uid="uid://cqyqyyik4fw5j" path="res://FAMCS.TD_design-main/45 уровень 3.png" id="5_4ci3s"]
+[ext_resource type="Texture2D" uid="uid://ckwd3p4vhssw5" path="res://FAMCS.TD_design-main/46 в меню.png" id="6_iy5a7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iusug"]
 blend_mode = 3
@@ -37,10 +38,40 @@ position = Vector2(634, 416)
 scale = Vector2(5, 5)
 texture = ExtResource("4_cg60e")
 
+[node name="go_to_level_2" type="Button" parent="Sprite2D3"]
+offset_left = -46.0
+offset_top = -22.0
+offset_right = 47.0
+offset_bottom = 2.0
+flat = true
+
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 texture_filter = 5
-position = Vector2(634, 602)
+position = Vector2(634, 593)
 scale = Vector2(5, 5)
 texture = ExtResource("5_4ci3s")
 
+[node name="Button" type="Button" parent="Sprite2D4"]
+offset_left = -46.0
+offset_top = -22.0
+offset_right = 47.0
+offset_bottom = 2.0
+flat = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+texture_filter = 5
+position = Vector2(1112, 83)
+scale = Vector2(4, 4)
+texture = ExtResource("6_iy5a7")
+
+[node name="back_to_menu" type="Button" parent="Sprite2D5"]
+offset_left = -46.0
+offset_top = -22.0
+offset_right = 47.0
+offset_bottom = 2.0
+flat = true
+
 [connection signal="pressed" from="Sprite2D2/go_to_level_1" to="." method="_on_go_to_level_1_pressed"]
+[connection signal="pressed" from="Sprite2D3/go_to_level_2" to="." method="_on_go_to_level_2_pressed"]
+[connection signal="pressed" from="Sprite2D4/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Sprite2D5/back_to_menu" to="." method="_on_back_to_menu_pressed"]
