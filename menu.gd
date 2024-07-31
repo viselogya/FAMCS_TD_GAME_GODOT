@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_IGNORE
+
 func _on_exit_pressed():
 	get_tree().quit()
 
