@@ -23,6 +23,7 @@ MusicPlayer="*res://Sounds/music_player.tscn"
 
 window/size/viewport_width=1296
 window/size/viewport_height=768
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]
@@ -51,3 +52,4 @@ pointing/emulate_mouse_from_touch=false
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

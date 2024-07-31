@@ -53,6 +53,7 @@ autoplay = "right"
 frame_progress = 0.563853
 
 [node name="unit_stats" parent="." instance=ExtResource("6_bfihl")]
+visible = false
 position = Vector2(-25, -104)
 
 [node name="HItBox" type="Area2D" parent="."]

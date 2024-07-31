@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://rujrdyndaouu"]
+[gd_scene load_steps=44 format=3 uid="uid://rujrdyndaouu"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_d67jg"]
 [ext_resource type="PackedScene" uid="uid://3vhu2q325nlc" path="res://shop.tscn" id="2_1i6dq"]
@@ -168,6 +168,9 @@ _data = {
 }
 point_count = 10
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ahho"]
+size = Vector2(91, 23)
+
 [node name="Level_2" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_d67jg")
@@ -207,11 +210,8 @@ position = Vector2(1090, 86)
 scale = Vector2(4, 4)
 texture = ExtResource("22_owlh7")
 
-[node name="back_to_menu" type="Button" parent="Sprite2D"]
-offset_left = -49.0
-offset_top = -22.0
-offset_right = 47.0
-offset_bottom = 2.0
-flat = true
+[node name="to_menu" type="TouchScreenButton" parent="Sprite2D"]
+position = Vector2(0.5, -10)
+shape = SubResource("RectangleShape2D_4ahho")
 
-[connection signal="pressed" from="Sprite2D/back_to_menu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Sprite2D/to_menu" to="." method="_on_to_menu_pressed"]

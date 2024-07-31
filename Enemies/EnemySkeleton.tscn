@@ -52,6 +52,7 @@ animation = &"left"
 autoplay = "right"
 
 [node name="unit_stats" parent="." instance=ExtResource("6_u45av")]
+visible = false
 position = Vector2(-22, -130)
 
 [node name="HitBox" type="Area2D" parent="."]

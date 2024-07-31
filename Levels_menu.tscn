@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpuygwnv1am24"]
+[gd_scene load_steps=10 format=3 uid="uid://cpuygwnv1am24"]
 
 [ext_resource type="Script" path="res://Levels_menu.gd" id="1_t8o1s"]
 [ext_resource type="Texture2D" uid="uid://bjyu6u7k8s0ww" path="res://FAMCS.TD_design-main/32 фон на главное меню.jpg" id="2_7t7yl"]
@@ -9,6 +9,12 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iusug"]
 blend_mode = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxnoh"]
+size = Vector2(92, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh12f"]
+size = Vector2(91, 23)
 
 [node name="Levels_menu" type="Node2D"]
 script = ExtResource("1_t8o1s")
@@ -25,12 +31,10 @@ position = Vector2(634, 243)
 scale = Vector2(5, 5)
 texture = ExtResource("3_0x5r0")
 
-[node name="go_to_level_1" type="Button" parent="Sprite2D2"]
-offset_left = -46.0
-offset_top = -22.0
-offset_right = 47.0
-offset_bottom = 2.0
-flat = true
+[node name="FirstLevelButton" type="TouchScreenButton" parent="Sprite2D2"]
+position = Vector2(0.599998, -9.8)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_bxnoh")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 texture_filter = 5
@@ -38,12 +42,10 @@ position = Vector2(634, 416)
 scale = Vector2(5, 5)
 texture = ExtResource("4_cg60e")
 
-[node name="go_to_level_2" type="Button" parent="Sprite2D3"]
-offset_left = -46.0
-offset_top = -22.0
-offset_right = 47.0
-offset_bottom = 2.0
-flat = true
+[node name="SecondLevelButton" type="TouchScreenButton" parent="Sprite2D3"]
+position = Vector2(0.799995, -10)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_bxnoh")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 texture_filter = 5
@@ -51,12 +53,9 @@ position = Vector2(634, 593)
 scale = Vector2(5, 5)
 texture = ExtResource("5_4ci3s")
 
-[node name="Button" type="Button" parent="Sprite2D4"]
-offset_left = -46.0
-offset_top = -22.0
-offset_right = 47.0
-offset_bottom = 2.0
-flat = true
+[node name="ThirdLevelButton" type="TouchScreenButton" parent="Sprite2D4"]
+position = Vector2(0.6, -10)
+shape = SubResource("RectangleShape2D_bxnoh")
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
 texture_filter = 5
@@ -64,14 +63,11 @@ position = Vector2(1112, 83)
 scale = Vector2(4, 4)
 texture = ExtResource("6_iy5a7")
 
-[node name="back_to_menu" type="Button" parent="Sprite2D5"]
-offset_left = -46.0
-offset_top = -22.0
-offset_right = 47.0
-offset_bottom = 2.0
-flat = true
+[node name="menuButton" type="TouchScreenButton" parent="Sprite2D5"]
+position = Vector2(0.5, -9.75)
+shape = SubResource("RectangleShape2D_nh12f")
 
-[connection signal="pressed" from="Sprite2D2/go_to_level_1" to="." method="_on_go_to_level_1_pressed"]
-[connection signal="pressed" from="Sprite2D3/go_to_level_2" to="." method="_on_go_to_level_2_pressed"]
-[connection signal="pressed" from="Sprite2D4/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Sprite2D5/back_to_menu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Sprite2D2/FirstLevelButton" to="." method="_on_first_level_button_pressed"]
+[connection signal="pressed" from="Sprite2D3/SecondLevelButton" to="." method="_on_second_level_button_pressed"]
+[connection signal="pressed" from="Sprite2D4/ThirdLevelButton" to="." method="_on_third_level_button_pressed"]
+[connection signal="pressed" from="Sprite2D5/menuButton" to="." method="_on_menu_button_pressed"]

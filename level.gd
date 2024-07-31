@@ -95,5 +95,5 @@ func create_jade_tower():
 	switch_build_mode()
 
 
-func _on_back_to_menu_pressed():
+func _on_to_menu_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn")

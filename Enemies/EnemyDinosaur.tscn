@@ -52,6 +52,7 @@ animation = &"right"
 autoplay = "right"
 
 [node name="unit_stats" parent="." instance=ExtResource("6_ven1b")]
+visible = false
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
