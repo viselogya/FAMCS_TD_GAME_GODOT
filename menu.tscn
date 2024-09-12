@@ -47,7 +47,7 @@ shape = SubResource("RectangleShape2D_lv6en")
 
 [node name="Exit" type="Sprite2D" parent="Control"]
 texture_filter = 5
-position = Vector2(650, 524)
+position = Vector2(652, 501)
 scale = Vector2(4, 4)
 texture = ExtResource("5_7qoiq")
 

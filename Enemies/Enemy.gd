@@ -5,6 +5,7 @@ class_name Enemy
 signal iam_on_end()
 signal iam_dead(amount)
 signal iam_dead_for_spawner()
+signal iam_on_end_for_spawner()
 
 var previous_position: Vector2
 
@@ -44,6 +45,7 @@ func _process(delta):
 func enemy_on_end():
 	queue_free()
 	iam_on_end.emit()
+	iam_dead_for_spawner.emit()
 
 func enemy_dead():
 	iam_dead.emit(Gold_on_kill)

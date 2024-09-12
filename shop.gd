@@ -58,7 +58,3 @@ func _on_jade_touch_screen_pressed():
 	
 func update_balance_label():
 	balance_label.set_text("Balance: " + str(balance))
-
-
-
-	

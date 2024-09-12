@@ -36,6 +36,7 @@ func add_enemy():
 	enemy.iam_on_end.connect(CurrentLevel.enemy_on_end)
 	enemy.iam_dead.connect(shop.update_balance)
 	enemy.iam_dead_for_spawner.connect(enemy_died)
+	enemy.iam_on_end_for_spawner.connect(enemy_died)
 	enemies_in_wave_left -= 1
 	update_waves_label()
 

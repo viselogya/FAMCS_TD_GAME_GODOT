@@ -76,7 +76,9 @@ func write_off_money_from_balance():
 		1:
 			shop.update_balance(-shop.stone_tower_price)
 		2:
-			shop.update_balance(-shop.eifel_tower_price)	
+			shop.update_balance(-shop.eifel_tower_price)
+		3:
+			shop.update_balance(-shop.jade_tower_price)
 
 func create_wooden_tower():
 	tower_number = 0
@@ -93,7 +95,6 @@ func create_eifel_tower():
 func create_jade_tower():
 	tower_number = 3
 	switch_build_mode()
-
 
 func _on_to_menu_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn")
